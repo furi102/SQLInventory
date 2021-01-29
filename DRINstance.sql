@@ -1,0 +1,15 @@
+﻿--Create the DRInstance table
+CREATE TABLE [dbo].[DRInstance]
+(
+[DRInstanceID] INT NOT NULL IDENTITY PRIMARY KEY,
+[DRInstanceName] NVARCHAR(128) NOT NULL UNIQUE,
+[DRServerID] INT NOT NULL,
+[ServerID] INT NOT NULL,
+[DRTechnology] NVARCHAR(128) NOT NULL,
+[TargetRPO] TINYINT NOT NULL,
+[TargetPTO] TINYINT NOT NULL,
+CONSTRAINT [FK_DRInstance_ToDRServer]
+FOREIGN KEY ([DRServerID], [ServerID]) REFERENCES [DRServer]
+([DRServerID],[ServerID])
+) ;
+GO

@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[HADR]
+(
+	[AGId] INT NOT NULL IDENTITY PRIMARY KEY, 
+    [AGName] NVARCHAR(50) NOT NULL UNIQUE, 
+    [AGipAddress] NVARCHAR(15) NOT NULL, 
+    [AGPort] NVARCHAR(8) NOT NULL,
+    CONSTRAINT [FK_AgName_ToInstancName]
+    FOREIGN KEY ([AGId]) REFERENCES [Instance]([InstanceID])
+)
